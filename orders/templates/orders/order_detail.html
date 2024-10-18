@@ -1,0 +1,26 @@
+<!-- orders/templates/orders/order_detail.html -->
+{% extends 'products/base.html' %}
+
+{% block title %}Order Details{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <h1 class="text-center">Order Details</h1>
+    <div class="order-info">
+        <p><strong>Order ID:</strong> {{ order.id }}</p>
+        <p><strong>Status:</strong> {{ order.status }}</p>
+        <p><strong>Address:</strong> {{ order.address }}</p>
+        <p><strong>Created at:</strong> {{ order.created_at }}</p>
+    </div>
+    <h2 class="mt-4">Items</h2>
+    <ul class="list-group">
+        {% for item in order.items.all %}
+            <li class="list-group-item">
+                {{ item.quantity }} x {{ item.product.name }} - ${{ item.price }}
+            </li>
+        {% endfor %}
+    </ul>
+    <p class="mt-4"><strong>Total:</strong> ${{ order.get_total }}</p>
+    <a href="{% url 'order_list' %}" class="btn btn-secondary">Back to Orders</a>
+</div>
+{% endblock %}

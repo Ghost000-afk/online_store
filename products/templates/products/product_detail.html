@@ -1,0 +1,67 @@
+{% extends 'products/base.html' %}
+
+{% block title %}{{ product.name }}{% endblock %}
+
+{% block content %}
+<div class="product-detail">
+    <h1>{{ product.name }}</h1>
+    {% if product.image %}
+        <img src="{{ product.image.url }}" alt="{{ product.name }}">
+    {% endif %}
+    <p class="description">{{ product.description }}</p>
+
+    <!-- Displaying the price with discount logic -->
+    {% if product.discount > 0 %}
+        <p class="price original-price">Original Price: <del>${{ product.price }}</del></p>
+        <p class="price discounted-price">Discounted Price: ${{ product.get_discounted_price }}</p>
+    {% else %}
+        <p class="price">Price: ${{ product.price }}</p>
+    {% endif %}
+
+    <p>Category: <a href="{% url 'product_list' product.category.id %}">{{ product.category.name }}</a></p>
+    <p>Created at: {{ product.created_at }}</p>
+
+    <!-- Form to add to cart -->
+    <form action="{% url 'add_to_cart' product.id %}" method="post">
+        {% csrf_token %}
+        <button type="submit">Add to Cart</button>
+    </form>
+
+    <!-- Form to add a review -->
+    <form action="{% url 'add_review' product.id %}" method="post">
+        {% csrf_token %}
+        <textarea name="comment" placeholder="Write your review"></textarea>
+        <button type="submit">Submit Review</button>
+    </form>
+
+    <!-- Reviews and form to reply to reviews -->
+    <div class="reviews">
+        {% for review in product.reviews.all %}
+            <div class="review">
+                <p>{{ review.user.username }}: {{ review.comment }}</p>
+                <p>Rating: {{ review.rating }}</p>
+                <p>Created at: {{ review.created_at }}</p>
+
+                <!-- Form to reply to a review -->
+                <form action="{% url 'reply_to_comment' review.id %}" method="post">
+                    {% csrf_token %}
+                    <textarea name="reply_text" placeholder="Write your reply"></textarea>
+                    <button type="submit">Submit Reply</button>
+                </form>
+
+                <!-- Replies to the review -->
+                {% for reply in review.replies.all %}
+                    <div class="reply">
+                        <p>{{ reply.user.username }}: {{ reply.reply_text }}</p>
+                        <p>Created at: {{ reply.created_at }}</p>
+                    </div>
+                {% endfor %}
+            </div>
+        {% empty %}
+            <p>No reviews yet.</p>
+        {% endfor %}
+    </div>
+
+    <a href="{% url 'product_list' product.category.id %}" class="back-button">Back to {{ product.category.name }} products</a>
+</div>
+{% endblock %}

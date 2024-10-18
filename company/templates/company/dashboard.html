@@ -1,0 +1,46 @@
+{% extends 'products/base.html' %}
+
+{% block content %}
+<div class="container mt-4">
+    <h2 class="text-center mb-4">{{ company.name }} Dashboard</h2>
+    <p class="text-center">{{ company.description }}</p>
+    <div class="text-center mb-4">
+        <img src="{{ company.logo.url }}" alt="{{ company.name }}" style="width: 100px; height: auto;">
+    </div>
+
+    <h3>Products</h3>
+    <a href="{% url 'add_product' %}" class="btn btn-primary mb-4">Add Product</a>
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Category</th>
+                <th>Views</th>
+                <th>Quantity Sold</th>
+                <th>Revenue</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for product in products %}
+            <tr>
+                <td>{{ product.name }}</td>
+                <td>{{ product.category }}</td>
+                <td>{{ product.views }}</td>
+                <td>{{ product.quantity_sold }}</td>
+                <td>${{ product.revenue }}</td>
+                <td>
+                    <a href="{% url 'edit_product' product.id %}" class="btn btn-warning btn-sm">Edit</a>
+                    <a href="{% url 'delete_product' product.id %}" class="btn btn-danger btn-sm">Delete</a>
+                </td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="6" class="text-center">No products available.</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

@@ -1,0 +1,16 @@
+{% extends 'products/base.html' %}
+
+{% block title %}Confirm Logout{% endblock %}
+
+{% block content %}
+<div class="container mt-4 text-center">
+    <h1>Are you sure you want to logout?</h1>
+    <div class="form-container mt-3">
+        <form method="post" class="d-inline">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-danger">Yes, logout</button>
+        </form>
+        <a href="{% url 'category_list' %}" class="btn btn-secondary">Cancel</a>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,59 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}My Online Store{% endblock %}</title>
+    <!-- Подключаем Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Подключаем кастомные стили -->
+    <link href="{% static 'css/styles.css' %}" rel="stylesheet">
+
+    <!-- Встроенные стили для футера -->
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .container {
+            flex: 1;
+        }
+
+        .footer {
+            background-color: #333;
+            color: #f2f2f2;
+            padding: 20px 0;
+            text-align: center;
+            margin-top: auto; /* Помещает футер внизу страницы */
+        }
+    </style>
+</head>
+<body>
+    <!-- Навигационная панель -->
+    {% include 'products/navbar.html' %}
+    
+    <div class="container mt-4">
+        {% block content %}
+        {% endblock %}
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container text-center">
+            <p>&copy; {{ current_year }} My Online Store. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Подключаем Bootstrap и jQuery скрипты -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

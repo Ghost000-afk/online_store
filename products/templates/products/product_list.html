@@ -1,0 +1,33 @@
+{% extends 'products/base.html' %}
+
+{% block title %}Products in {{ category.name }}{% endblock %}
+
+{% block content %}
+<h1>Products in {{ category.name }}</h1>
+<ul class="product-list">
+    {% for product in products %}
+        <li>
+            <a href="{% url 'product_detail' product.id %}">
+                {% if product.image %}
+                    <img src="{{ product.image.url }}" alt="{{ product.name }}">
+                {% endif %}
+                <h2>{{ product.name }}</h2>
+                {% if product.discount > 0 %}
+                    <!-- Display original price with a strike-through -->
+                    <span class="price original-price">${{ product.price }}</span>
+                    <!-- Display discounted price -->
+                    <span class="price discounted-price">${{ product.get_discounted_price }}</span>
+                {% else %}
+                    <!-- Display price without discount -->
+                    <span class="price">${{ product.price }}</span>
+                {% endif %}
+            </a>
+        </li>
+    {% empty %}
+        <li class="no-products">No products available.</li>
+    {% endfor %}
+</ul>
+<br>
+<a href="{% url 'category_list' %}" class="back-to-categories-button">Back to categories</a>
+
+{% endblock %}

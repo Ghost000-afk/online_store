@@ -1,0 +1,42 @@
+{% extends 'products/base.html' %}
+
+{% block title %}Your Cart{% endblock %}
+
+{% block content %}
+<h1>Your Cart</h1>
+{% load multiply_tags %}
+<table class="cart-table">
+    <thead>
+        <tr>
+            <th>Product</th>
+            <th>Image</th>
+            <th>Quantity</th>
+            <th>Price</th>
+            <th>Total</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for item in cart.items.all %}
+        <tr>
+            <td>{{ item.product.name }}</td>
+            <td>
+                {% if item.product.image %}
+                    <img src="{{ item.product.image.url }}" alt="{{ item.product.name }}" class="product-image">
+                {% else %}
+                    No Image
+                {% endif %}
+            </td>
+            <td>{{ item.quantity }}</td>
+            <td>${{ item.product.get_discounted_price }}</td>
+            <td>${{ item.quantity|multiply:item.product.get_discounted_price }}</td>
+            <td>
+                <a href="{% url 'remove_from_cart' item.pk %}" class="btn btn-danger">Remove</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+<p class="cart-total">Total: ${{ cart.items.all|sum_total_price }}</p>
+<a href="{% url 'create_order' %}" class="btn btn-primary">Place Order</a>
+{% endblock %}

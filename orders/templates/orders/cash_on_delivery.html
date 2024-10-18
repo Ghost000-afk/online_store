@@ -1,0 +1,18 @@
+{% extends 'products/base.html' %}
+
+{% block title %}Order Confirmation{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <h1>Order Confirmation</h1>
+    <div class="order-summary">
+        <p><strong>Thank you for your order!</strong></p>
+        <p><strong>Order ID:</strong> {{ order.id }}</p>
+        <p><strong>Total amount:</strong> ${{ order.get_total }}</p>
+        <p><strong>Payment Code:</strong> {{ order.payment_code }}</p>
+        <p><strong>Delivery Address:</strong> {{ order.address }}</p>
+        <p><strong>Phone Number:</strong> {{ order.phone_number }}</p>
+        <a href="{% url 'order_list' %}" class="btn btn-primary">Back to Order List</a>
+    </div>
+</div>
+{% endblock %}

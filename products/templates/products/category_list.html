@@ -1,0 +1,22 @@
+{% extends 'products/base.html' %}
+{% load static %}
+
+{% block title %}Categories{% endblock %}
+
+{% block content %}
+<h1>Categories</h1>
+<ul class="category-list">
+    {% for category in categories %}
+        <li>
+            <a href="{% url 'product_list' category.id %}">
+                {% if category.image %}
+                    <img src="{{ category.image.url }}" alt="{{ category.name }}">
+                {% endif %}
+                <div class="category-name">{{ category.name }}</div>
+            </a>
+        </li>
+    {% empty %}
+        <li>No categories available.</li>
+    {% endfor %}
+</ul>
+{% endblock %}

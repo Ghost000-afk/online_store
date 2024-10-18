@@ -1,0 +1,1088 @@
+/* static/css/styles.css */
+body {
+    font-family: Arial, sans-serif;
+}
+
+.navbar {
+    background-color: #333;
+    overflow: hidden;
+}
+
+.navbar a {
+    float: left;
+    display: block;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 20px;
+    text-decoration: none;
+}
+
+.navbar a:hover {
+    background-color: #ddd;
+    color: black;
+}
+
+.navbar-left {
+    float: left;
+}
+
+.navbar-center {
+    float: left;
+    margin-left: 20px;
+}
+
+.navbar-right {
+    float: right;
+}
+
+.content {
+    padding: 20px;
+}
+
+.categories {
+    float: left;
+    width: 200px;
+}
+
+.categories ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.categories li {
+    padding: 8px;
+    margin-bottom: 8px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+}
+
+.categories li a {
+    text-decoration: none;
+    color: #333;
+}
+
+.categories li a:hover {
+    color: #007bff;
+}
+
+.products {
+    margin-left: 220px;
+}
+
+
+
+
+.category-list {
+    display: flex;
+    flex-wrap: wrap;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    gap: 15px; /* Расстояние между элементами */
+}
+
+.category-list li {
+    flex: 1 1 200px; /* Элементы могут сжиматься и расширяться, но не меньше 200px */
+    position: relative;
+    background-color: #fafafa;
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+    overflow: hidden; /* Скрывает переполняющий контент */
+}
+
+.category-list img {
+    width: 100%; /* Заставляет изображение растягиваться по ширине контейнера */
+    height: 200px; /* Устанавливает фиксированную высоту для единообразия */
+    object-fit: cover; /* Обеспечивает покрытие области без искажения */
+    border-radius: 5px; /* Скругляет углы изображения */
+    display: block; /* Убирает пробелы под изображением */
+    background-color: #ccc; /* Добавляет фон для визуального представления, если изображение не заполняет контейнер */
+}
+
+.category-list h1 {
+    margin: 10px 0 0; /* Отступы для правильного позиционирования заголовка */
+    font-size: 1.2em; /* Размер шрифта */
+    color: #333; /* Цвет заголовка */
+}
+
+.category-list a:hover {
+    background: rgba(0, 0, 0, 0.7); /* Darker on hover */
+}
+
+
+
+/* Стилизация списка продуктов */
+.product-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px; /* Расстояние между элементами */
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.product-list li {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.product-list img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-bottom: 1px solid #ddd;
+}
+
+.product-list h2 {
+    font-size: 1.2em;
+    margin: 15px 0 10px;
+    color: #333;
+}
+
+.product-list .price {
+    font-size: 1em;
+    margin: 10px 0;
+    display: block;
+}
+
+.product-list .discount {
+    color: #d9534f; /* Цвет для скидки */
+    font-weight: bold;
+}
+
+.product-list .original-price {
+    text-decoration: line-through;
+    color: #999;
+    margin-right: 5px;
+}
+
+.product-list .discounted-price {
+    color: #5bc0de; /* Цвет для скидки */
+}
+
+.product-list .no-products {
+    text-align: center;
+    padding: 20px;
+    font-size: 1.2em;
+    color: #666;
+}
+
+/* Стили для кнопки "Back to categories" */
+.back-to-categories-button {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 1em;
+    color: #fff;
+    background-color: #007bff; /* Голубой цвет */
+    border: none;
+    border-radius: 5px;
+    text-align: center;
+    text-decoration: none;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+.back-to-categories-button:hover {
+    background-color: #0056b3; /* Темнее голубой цвет при наведении */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+
+
+
+/* Стили для страницы деталей продукта */
+.product-detail {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+}
+
+.product-detail img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+.product-detail h1 {
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+.product-detail p {
+    font-size: 1.2em;
+    margin-bottom: 15px;
+}
+
+.product-detail .price {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #333;
+}
+
+.product-detail .original-price {
+    color: #999;
+    text-decoration: line-through;
+}
+
+.product-detail .discounted-price {
+    color: #e74c3c;
+}
+
+.product-detail a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.product-detail a:hover {
+    text-decoration: underline;
+}
+
+.product-detail form {
+    margin-top: 20px;
+}
+
+.product-detail button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    font-size: 1em;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.product-detail button:hover {
+    background-color: #0056b3;
+}
+
+.product-detail textarea {
+    width: 100%;
+    padding: 10px;
+    font-size: 1em;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+}
+
+.product-detail .reviews {
+    margin-top: 30px;
+}
+
+.product-detail .review {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    background-color: #f9f9f9;
+}
+
+.product-detail .review .reply {
+    margin-top: 10px;
+    padding-left: 20px;
+    border-left: 2px solid #ddd;
+}
+
+.product-detail .back-button {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 1em;
+    color: #fff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    text-align: center;
+    text-decoration: none;
+    margin-top: 20px;
+    transition: background-color 0.3s;
+}
+
+.product-detail .back-button:hover {
+    background-color: #0056b3;
+}
+
+
+
+/*.footer {
+    background-color: #333;
+    color: #f2f2f2;
+    padding: 20px 0;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+.footer p {
+    margin: 0;
+}
+
+
+
+/* Cart Table Styles */
+.cart-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+}
+
+.cart-table th, .cart-table td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.cart-table th {
+    background-color: #f4f4f4;
+}
+
+.product-image {
+    width: 100px;
+    height: auto;
+}
+
+.cart-total {
+    font-size: 1.2em;
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+.btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    text-align: center;
+    text-decoration: none;
+    color: #fff;
+    display: inline-block;
+    font-size: 16px;
+}
+
+.btn-primary {
+    background-color: #007bff;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+}
+
+.btn-danger {
+    background-color: #dc3545;
+}
+
+.btn-danger:hover {
+    background-color: #c82333;
+}
+
+
+
+.order-form {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+
+.order-form h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.order-form .btn-primary {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    text-align: center;
+}
+
+.order-form input, 
+.order-form select, 
+.order-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+
+
+.order-summary {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+
+.order-summary h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.order-summary p {
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.order-summary .btn-primary {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    text-align: center;
+}
+
+
+
+.payment-form {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+
+.payment-form h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.payment-form .form-group {
+    margin-bottom: 20px;
+}
+
+.payment-form label {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 16px;
+}
+
+.payment-form .form-control {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.payment-form .text-danger {
+    color: red;
+    margin-top: 10px;
+}
+
+.payment-form .btn-primary {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    text-align: center;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.payment-form .btn-primary:hover {
+    background-color: #0056b3;
+}
+
+
+/* Стиль для профиля */
+.profile-info {
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    margin-bottom: 20px;
+}
+
+.profile-info p {
+    margin: 10px 0;
+    font-size: 16px;
+}
+
+.profile-info strong {
+    font-weight: bold;
+}
+
+.btn-primary {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 15px;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+}
+
+.btn-secondary {
+    background-color: #d2cf0f;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 15px;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+
+.btn-secondary:hover {
+    background-color: #5a6268;
+}
+
+
+
+/* Стиль для страницы подтверждения выхода */
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.btn-danger {
+    background-color: #dc3545;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 15px;
+    text-decoration: none;
+    font-size: 16px;
+    display: inline-block;
+}
+
+.btn-danger:hover {
+    background-color: #c82333;
+}
+
+.btn-secondary {
+    background-color: #46d124; /* Поправил цвет на серый */
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 15px;
+    text-decoration: none;
+    font-size: 16px;
+    display: inline-block;
+}
+
+.btn-secondary:hover {
+    background-color: #5a6268;
+}
+
+.mt-3 {
+    margin-top: 1rem;
+}
+
+/* Стиль для формы с кнопками */
+.form-container {
+    display: flex;
+    justify-content: center;
+    gap: 1rem; /* Расстояние между кнопками */
+}
+
+.form-container button,
+.form-container a {
+    margin: 0; /* Удаление отступов для кнопок */
+}
+
+
+
+
+
+/* Стиль для страницы входа */
+.container {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.btn-primary {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 15px;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+}
+
+.btn-link {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.btn-link:hover {
+    text-decoration: underline;
+}
+
+.mt-3 {
+    margin-top: 1rem;
+}
+
+.mt-4 {
+    margin-top: 1.5rem;
+}
+
+.form-group {
+    margin-bottom: 1rem;
+}
+
+
+
+
+/* Дополнительные стили для страницы регистрации */
+
+.form-container {
+    display: flex;
+    flex-direction: row;
+    gap: 20px; /* Расстояние между полями */
+}
+
+/* Стили для каждого блока поля ввода */
+.form-group {
+    display: flex;
+    flex-direction: column;
+    flex: 1; /* Поля будут занимать равное пространство */
+}
+
+/* Стили для полей ввода */
+input[type="text"],
+input[type="password"] {
+    width: 100%; /* Поля ввода занимают всю ширину контейнера */
+    padding: 8px;
+    margin-top: 5px;
+    box-sizing: border-box; /* Учитывать padding в общей ширине */
+}
+
+/* Стили для кнопки */
+button {
+    display: block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+
+
+/* Стиль для страницы списка заказов */
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+h1.text-center {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.table th, .table td {
+    padding: 12px;
+    text-align: left;
+}
+
+.table th {
+    background-color: #f8f9fa;
+    color: #212529;
+}
+
+.table td {
+    background-color: #ffffff;
+    color: #212529;
+}
+
+.table-striped tbody tr:nth-of-type(odd) {
+    background-color: #f2f2f2;
+}
+
+.table-bordered {
+    border: 1px solid #dee2e6;
+}
+
+.table-bordered th, .table-bordered td {
+    border: 1px solid #dee2e6;
+}
+
+.btn-primary {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 8px 12px;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+}
+
+
+/* Стиль для страницы деталей заказа */
+.order-info p {
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.list-group {
+    margin-top: 20px;
+}
+
+.list-group-item {
+    padding: 10px;
+    border: 1px solid #dee2e6;
+}
+
+.btn-secondary {
+    background-color: #21cb26;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 15px;
+    text-decoration: none;
+    font-size: 16px;
+    margin-top: 20px;
+}
+
+.btn-secondary:hover {
+    background-color: #5a6268;
+}
+
+
+/* Общие стили для формы редактирования профиля */
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+h1 {
+    margin-bottom: 20px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.form-group input,
+.form-group select {
+    width: 100%;
+    padding: 8px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    background-color: #007bff;
+    color: #fff;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+
+
+/* Общие стили для страницы Dashboard компании */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+h2, h3 {
+    margin-bottom: 20px;
+}
+
+img {
+    border-radius: 5px;
+}
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.table th, .table td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.table th {
+    background-color: #f4f4f4;
+}
+
+.table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.table .btn {
+    margin-right: 5px;
+}
+
+.table .btn-sm {
+    padding: 5px 10px;
+    font-size: 14px;
+}
+
+.btn-primary {
+    background-color: #007bff;
+    color: #fff
+
+}
+
+/* Общие стили для контейнера */
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+
+/* Контейнер для страницы добавления продукта */
+.add-product-container {
+    max-width: 600px; /* Уменьшаем ширину контейнера */
+    margin: 0 auto;
+    padding: 20px;
+    /* Уменьшили высоту контейнера */
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.1); /* Уменьшили тень для более аккуратного вида */
+    background-color: #f9f9f9; /* Фон контейнера для контраста */
+    /* Используем flexbox для центрирования содержимого */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 70vh; /* Минимальная высота контейнера для правильного отображения */
+}
+
+/* Формы внутри контейнера */
+.add-product-form {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    width: 100%; /* Сделаем форму по ширине контейнера */
+    max-width: 500px; /* Ограничиваем максимальную ширину формы */
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.1); /* Легкая тень для формы */
+}
+
+/* Заголовок формы */
+.add-product-container h2 {
+    font-size: 22px; /* Уменьшаем размер заголовка */
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* Стили для полей формы */
+.add-product-form p {
+    margin-bottom: 15px;
+    font-size: 16px;
+}
+
+/* Стили для полей ввода в форме */
+.add-product-form input[type="text"],
+.add-product-form input[type="number"],
+.add-product-form input[type="file"],
+.add-product-form textarea,
+.add-product-form select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* Кнопка добавления продукта */
+.add-product-btn {
+    display: inline-block;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    /* Убедитесь, что кнопка не перекрывается другими элементами */
+    margin-top: 20px;
+}
+
+.add-product-btn:hover {
+    background-color: #0056b3;
+}
+
+/* Убедитесь, что футер не перекрывает содержимое */
+footer {
+    margin-top: 20px;
+}
+
+
+/* Обертка для страницы редактирования продукта */
+.edit-product-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+}
+
+/* Форма редактирования продукта */
+.edit-product-form {
+    width: 100%;
+    max-width: 600px;
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Элементы формы */
+.edit-product-form input,
+.edit-product-form select,
+.edit-product-form textarea {
+    width: 100%;
+    margin-bottom: 15px;
+    padding: 10px;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+    box-sizing: border-box;
+}
+
+/* Кнопки формы */
+.form-actions {
+    display: flex;
+    justify-content: space-between;
+}
+
+.btn {
+    padding: 10px 15px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-size: 16px;
+    display: inline-block;
+}
+
+.btn-save {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+}
+
+.btn-save:hover {
+    background-color: #0056b3;
+}
+
+.btn-cancel {
+    background-color: #6c757d;
+    color: #fff;
+    border: none;
+}
+
+.btn-cancel:hover {
+    background-color: #5a6268;
+}
+
+
+/* Стили для страницы регистрации компании */
+.register-company-container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+}
+
+.register-company-container h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.register-company-container form {
+    width: 100%;
+}
+
+.register-company-container form input,
+.register-company-container form select,
+.register-company-container form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.register-company-container button[type="submit"] {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 15px;
+    text-decoration: none;
+    font-size: 16px;
+    cursor: pointer;
+    display: block;
+    margin: 20px auto 0;
+}
+
+.register-company-container button[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+
+
